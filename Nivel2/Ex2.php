@@ -17,25 +17,25 @@ funció(2 xocolates) + funció(1 de xiclets) + funció(1 de carmels) = 2 + 0.5 +
 
 Sent, per tant, el total, 4.
 */
+$dulces = array (
+    'chocolate' => 1,
+    'chicles' => 0.50,
+    'caramelos' => 1.5,
+);
+$total = 0;
 
-$chocolatePrecio = 1;
-$chiclesPrecio = 0.50;
-$caramelosPrecio = 1.5;
-
-function chocolate($chocolatePrecio){
-    $resultado = $chocolatePrecio *1;
-    return $resultado;
-}
-function chicles($chiclesPrecio){
-    $resultado = $chiclesPrecio *2;
-    return $resultado;
-}
-function caramelos($caramelosPrecio){
-    $resultado = $caramelosPrecio *3;
-    return $resultado;
+function subTotales($dulces,$dulce,$cantidad) {
+    if (isset($dulces[$dulce])) {
+        return $dulces[$dulce] * $cantidad;
+    }
+    return "Añada el dulce correcto";
 }
 
-echo chocolate($chocolatePrecio) + chicles($chiclesPrecio) + caramelos($caramelosPrecio);
+$totalChocolate = subTotales($dulces,'chocolate',2);
+$totalchicles = subTotales($dulces, 'chicles',7);
+$totalCaramelos = subTotales($dulces, 'caramelos',3);
 
+$total = $totalChocolate + $totalchicles + $totalCaramelos;
 
+echo "El total de la compra es " . $total . " euros ";
 ?>
