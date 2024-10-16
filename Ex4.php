@@ -9,10 +9,9 @@ es compta(D'1 en 1, de 2 en 2…).
 El compte s’ha de mostrar per pantalla pas per pas.
 */
 $p1 = 0;
-$pC = 2; // modificar el contador
-$operacion = "";
 
-function contador(int $p1, int $pC, string $operacion): string {
+function contador(int $p1, int $pC = 3): string {
+    $operacion = "";
     for ($i = $p1; $i < 10; $i += $pC) {
         $operacion .= $i . " " . "+" . " " . $pC . "<br>";
     }
@@ -20,7 +19,7 @@ function contador(int $p1, int $pC, string $operacion): string {
 }
 
 
-echo contador($p1, $pC, $operacion);
+echo contador($p1);
 
 
 ?>
