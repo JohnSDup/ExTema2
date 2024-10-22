@@ -9,25 +9,22 @@ Cada minut addicional a partir dels 3 primers és un pas de comptador
 i costa 5 cèntims.
 */
 
-$costeMinuto = 0.05;
-$duracion = 3; 
-$tiempoLlamada = 10; //tiempo de la llamada total
+const COSTE_PRIMER3MINUTOS = 0.10;
+const COSTE_MINUTOS_ADICIONALES = 0.05;
+$duracionLlamada = 10;
 
-function costeLLamada($costeMinuto, $duracion, $tiempoLlamada) {
-    if ($tiempoLlamada <= $duracion) {
-        return "El coste de la llamada es 0.10 céntimos";
+function costeLLamada($duracionLlamada) {
+    if ($duracionLlamada <= 3) {
+        return "El coste de la llamada ". COSTE_PRIMER3MINUTOS . "€";
     } 
-    else if ($tiempoLlamada > $duracion) {
-        $costeExtra = ($tiempoLlamada - $duracion) * $costeMinuto;
-        $costeTotal = 0.10 + $costeExtra;
-        return "El coste de la llamada es " . $costeTotal . " céntimos";
-    } 
-    else {
-        return "Introduzca los minutos de llamada correctamente";
-    }
+        $minutosAdicionales = $duracionLlamada-3;
+        $costeTotal = COSTE_PRIMER3MINUTOS + ($minutosAdicionales * COSTE_MINUTOS_ADICIONALES);
+        return "La llamada ha costado " . $costeTotal . "€";
 }
 
-echo costeLLamada($costeMinuto, $duracion, $tiempoLlamada);
+
+
+echo costeLLamada($duracionLlamada);
 
 
 
